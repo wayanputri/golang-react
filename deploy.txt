@@ -1,0 +1,15 @@
+Nginx Web Server
+
+Mysql Running on Host machine
+
+#Compile go app
+CGO_ENABLE=0 GOOS=linux go build -o build/Server
+
+#Build react app
+npm run build
+
+#Build docker image
+docker build -t blog-app .
+
+#Run container
+docker run --name blog_container -p 8000:8000 -it --rm blog-app
